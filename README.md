@@ -1,7 +1,7 @@
 docker-centos6-buildagent
 =====================
 
-This is the Docker container with JetBrains [`TeamCity`](https://www.jetbrains.com/teamcity/) Build Agent inside.
+This is the Docker container with JetBrains [TeamCity](https://www.jetbrains.com/teamcity/) Build Agent inside.
 Just run it and authorize the new agent in `Unauthorized agents` tab.
 
 ### Environment variables
