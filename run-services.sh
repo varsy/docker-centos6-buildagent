@@ -37,5 +37,5 @@ done
 
 trap "/home/buildagent/buildAgent/bin/agent.sh stop" SIGINT SIGTERM SIGHUP
 
-tail -qf /home/buildagent/buildAgent/logs/teamcity-agent.log &
+tail -qf /home/buildagent/buildAgent/logs/teamcity-agent.log /home/buildagent/buildAgent/conf/log4j.dtd &
 wait
