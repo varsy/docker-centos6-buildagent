@@ -16,16 +16,14 @@ fi
 
 wget -O /home/buildagent/buildAgent.zip ${TC_URL}/update/buildAgent.zip; rccheck
 
-if [ ${TOKEN} ]; then
-    sed -i "s/authorizationToken=.*/authorizationToken=${TOKEN}/" /home/buildagent/buildAgent/conf/buildAgent.properties
-fi
-
 unzip -q -d /home/buildagent/buildAgent /home/buildagent/buildAgent.zip; rccheck
 chmod +x /home/buildagent/buildAgent/bin/*.sh
 
 cp -p /home/buildagent/buildAgent/conf/buildAgent.dist.properties /home/buildagent/buildAgent/conf/buildAgent.properties
 sed -i "s|serverUrl=.*|serverUrl=${TC_URL}|" /home/buildagent/buildAgent/conf/buildAgent.properties; rccheck
-
+if [ ${TOKEN} ]; then
+    sed -i "s/authorizationToken=.*/authorizationToken=${TOKEN}/" /home/buildagent/buildAgent/conf/buildAgent.properties
+fi
 
 /home/buildagent/buildAgent/bin/agent.sh start
 
